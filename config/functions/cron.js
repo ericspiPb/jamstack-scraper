@@ -10,6 +10,8 @@
  * See more details here: https://strapi.io/documentation/developer-docs/latest/setup-deployment-guides/configurations.html#cron-tasks
  */
 
+const jamstack = require('../../scripts/scrapers/jamstack.js')
+
 module.exports = {
   /**
    * Simple example.
@@ -18,4 +20,7 @@ module.exports = {
   // '0 1 * * 1': () => {
   //
   // }
+  '* * * * *': () => {
+    jamstack.main()
+  }
 };
